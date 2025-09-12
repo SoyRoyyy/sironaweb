@@ -21,4 +21,17 @@ class SubKegiatan extends Model
     {
         return $this->hasMany(SubRekening::class);
     }
+
+    public function jumlahAnggarans()
+    {
+        return $this->hasMany(JumlahAnggaran::class, 'sub_kegiatan_id');
+    }
+
+    public function subRekening()
+    {
+        return $this->hasOne(SubRekening::class);
+    }
+
+
+
 }
