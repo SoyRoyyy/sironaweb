@@ -9,7 +9,6 @@ class KegiatanUtama extends Model
 {
     use HasFactory;
 
-    // Nama tabel di database
     protected $table = 'kegiatan_utamas';
     protected $fillable = ['uraian'];
 
@@ -22,4 +21,15 @@ class KegiatanUtama extends Model
     {
         return $this->hasMany(RekeningUtama::class);
     }
+
+    public function jumlahAnggarans()
+    {
+        return $this->hasMany(JumlahAnggaran::class, 'kegiatan_utama_id');
+    }
+
+    public function rekeningUtama()
+    {
+        return $this->hasOne(RekeningUtama::class);
+    }
+
 }
